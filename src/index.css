@@ -1,13 +1,113 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    background-color: #f5f7fb;
+    background-image: url(images/blob5.png), url(images/blob6.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0%, 0% 100%;
+    background-size: 500px;
+    height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.body-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.start-wrapper {
+    margin-top: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title,
+.description {
+    color: #293264;
+}
+
+.title {
+    font-size: 5rem;
+}
+
+.description {
+    font-size: 1.8rem;
+}
+
+.start-btn {
+    background-color: #4d5b9e;
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.start-wrapper>* {
+    margin: 20px;
+}
+
+.question-wrapper {
+    margin: 100px;
+    width: 70%;
+}
+
+.indiv-question {
+    border-bottom: 1px solid #e1e4f2;
+    ;
+}
+
+.questions {
+    color: #293264;
+    font-size: 2rem;
+}
+
+.choices-flexbox {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.choices-flexbox>div {
+    padding: 15px 50px;
+    border: 1px solid #4d5b9e;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #293264;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.choices-flexbox>div:hover {
+    background-color: #d6dbf5;
+    border: 1px solid white;
+}
+
+.check_answer_btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.check_answer_btn {
+    margin-top: 20px;
+    background-color: #4d5b9e;
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.score {
+    margin-top: 35px;
 }
