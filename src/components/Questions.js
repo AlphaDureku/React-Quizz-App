@@ -1,20 +1,22 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
 import IndividualQuestions from './IndividualQuestions';
+import Confetti from 'react-confetti'
 
-export default function Questions(){
+export default function Questions(props){
     const [quiz, setQuiz] =useState([])
     const [score, setScore]=useState({score: 0, status: false})
-    
+    const [restart, setRestart]=useState(false)
+
         useEffect(()=>{
         async function fetchAPI(){
+            setScore({score: 0, status: false})
             const data = await axios.get("https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple")
             setQuiz(data.data.results)
             concatenateChoices()
-            
         }   
         fetchAPI()
-    }, [])
+    }, [restart])
     
     function insertRandom(array, item) {
         const randomIndex = Math.floor(Math.random() * (array.length + 1));
@@ -39,16 +41,21 @@ export default function Questions(){
     }
 
     function checkAnswer(){
+        setScore(prev=>({...prev, status: true}))
         for(let i=0; i<quiz.length; i++){
             if(quiz[i].answer === quiz[i].correct_answer){
-              setScore({
-                status: true, score: score.score + 1
-              })
+              setScore(prevData=>({
+                ...prevData, score: prevData.score + 1
+              }))
+              
             }
         }
     }
-    console.log(score)
-    console.log(quiz)
+
+    function handleRestart(){
+
+        setRestart((!restart))
+    }
     let quizElements = quiz.map((items, index)=>{
         return <IndividualQuestions key={index}questions={items.question} choices={items.choices} UserAnswer ={setAnswer} id = {index} answer = {items.answer} status = {score.status} correct = {items.correct_answer}/>
     })
@@ -58,7 +65,8 @@ export default function Questions(){
              {quizElements}
              <div className='check_answer_btn-wrapper'>
              {score.status && <h1 className='score'>You scored {score.score}/{quiz.length}</h1>}
-             <button className='check_answer_btn' onClick={checkAnswer}>{!score.status ? 'Check Answer' : 'Restart'}</button>
+             <button className='check_answer_btn' onClick={!score.status ? checkAnswer : handleRestart}>{!score.status ? 'Check Answer' : 'Restart'}</button>
+             {score.status && <Confetti height={2500}/>}
              </div>
         </div>
     )

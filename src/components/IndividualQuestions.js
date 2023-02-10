@@ -1,9 +1,6 @@
-import { useState } from "react"
 
 
 export default function Individual_Questions(props){
-
-    const [counter, setCounter] = useState(1)
 
     const choicesElements=props.choices.map((items, index)=>{
         return <div key={index} className="choice" onClick={()=>props.UserAnswer(items, props.id)} style={{background: props.answer === items ? "#4d5b9e" : '', color: props.answer === items ? "white" : ''}}>{items}</div>
@@ -15,7 +12,7 @@ export default function Individual_Questions(props){
     
 
 
- 
+
     return (
         <div className="indiv-question">
             <h1 className="questions">{props.id+1}. {props.questions}</h1>

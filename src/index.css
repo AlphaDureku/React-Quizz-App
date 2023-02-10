@@ -20,11 +20,29 @@ body {
 }
 
 .start-wrapper {
-    margin-top: 60%;
+    margin-top: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.hikori {
+    position: absolute;
+    opacity: .4;
+    border-radius: 0 0 500px 0;
+    top: 0%;
+    left: -5%;
+    z-index: -1;
+}
+
+.hikori2 {
+    position: absolute;
+    opacity: .4;
+    border-radius: 500px 0 0 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 }
 
 .title,
@@ -76,13 +94,14 @@ body {
 }
 
 .choices-flexbox>div {
-    padding: 15px 50px;
     border: 1px solid #4d5b9e;
     border-radius: 15px;
     font-weight: bold;
     color: #293264;
     margin-bottom: 40px;
     cursor: pointer;
+    text-align: center;
+    padding: 1% 3%;
 }
 
 .choices-flexbox>div:hover {

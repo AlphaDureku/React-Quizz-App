@@ -1,7 +1,7 @@
 import Start from "./Start"
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Questions from "./Questions"
-import axios from 'axios';
+
 
 export default function Main(){
     const [state, setState] = useState(true)
@@ -14,8 +14,8 @@ export default function Main(){
 
     return(
         <div className="body-wrapper">
-             {state && <Start start={begin}/>}
-             {!state && <Questions/>}
+             {state && <Start start={begin} state={state}/>}
+             {!state && <Questions start={begin} state={state}/>}
         </div>
  
     )
