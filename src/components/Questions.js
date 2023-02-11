@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import axios from 'axios';
+
 import IndividualQuestions from './IndividualQuestions';
 import Confetti from 'react-confetti'
 
@@ -11,8 +11,9 @@ export default function Questions(props){
         useEffect(()=>{
         async function fetchAPI(){
             setScore({score: 0, status: false})
-            const data = await axios.get("https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple")
-            setQuiz(data.data.results)
+            const data = await fetch("https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple")
+            let res = await data.json()
+            setQuiz(res.results)
             concatenateChoices()
         }   
         fetchAPI()
