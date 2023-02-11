@@ -68,6 +68,7 @@ export default function Questions(props){
              <button className='check_answer_btn' onClick={!score.status ? checkAnswer : handleRestart}>{!score.status ? 'Check Answer' : 'Restart'}</button>
              {score.status && <Confetti height={2500}/>}
              </div>
+             
         </div>
     )
 }
