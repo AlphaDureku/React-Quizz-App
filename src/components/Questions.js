@@ -14,7 +14,7 @@ export default function Questions(props){
             const data = await fetch("https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple")
             let res = await data.json()
             setQuiz(res.results)
-            concatenateChoices()
+
         }   
         fetchAPI()
     }, [restart])
