@@ -31,6 +31,21 @@ export default function Questions(props){
                 return {...item, choices: insertRandom(item.incorrect_answers, item.correct_answer), id: index}
             }))
         )
+        setQuiz(prevData=>(
+            prevData.map((item, index)=>{
+                return {...item, question: item.question.replace("&quot;", "")}
+            }))
+        )
+        setQuiz(prevData=>(
+            prevData.map((item, index)=>{
+                return {...item, question: item.question.replace("&#039;s", "")}
+            }))
+        )
+        setQuiz(prevData=>(
+            prevData.map((item, index)=>{
+                return {...item, question: item.question.replace("&quot;", "")}
+            }))
+        )
     }
 
     function setAnswer(answered, id){
