@@ -79,7 +79,6 @@ body {
 
 .indiv-question {
     border-bottom: 1px solid #e1e4f2;
-    ;
 }
 
 .questions {
@@ -137,4 +136,40 @@ body {
 
 .loading-wrapper img {
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .body-wrapper {
+        width: 100%;
+    }
+    .questions {
+        font-size: 1rem;
+    }
+    .question-wrapper {
+        margin: 10px;
+    }
+    .choices-flexbox {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .choices-flexbox>div {
+        border: 1px solid #4d5b9e;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 1% 8%;
+        width: auto;
+    }
+    .hikori,
+    .hikori2 {
+        height: 20%;
+    }
+    .start-wrapper {
+        margin-top: 60%;
+    }
+    .loading-wrapper img {
+        margin-top: 50%;
+        height: 300px;
+        border-radius: 10%;
+    }
 }
