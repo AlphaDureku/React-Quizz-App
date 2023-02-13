@@ -130,3 +130,11 @@ body {
 .score {
     margin-top: 35px;
 }
+
+.loading-wrapper {
+    margin-top: 40%;
+}
+
+.loading-wrapper img {
+    border-radius: 10px;
+}
